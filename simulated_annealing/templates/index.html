@@ -1,0 +1,82 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejecutar Scripts</title>
+    <!-- Estilos CSS para mejorar el diseño -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Fuente moderna y fácil de leer */
+            background-color: #f5f5f5; /* Fondo suave */
+            margin: 20px; /* Espaciado alrededor del contenido */
+        }
+        
+        h1 {
+            color: #333; /* Texto oscuro para buen contraste */
+        }
+        
+        form {
+            background-color: white; /* Fondo blanco para el formulario */
+            border: 1px solid #ddd; /* Borde gris claro */
+            padding: 15px; /* Relleno interno */
+            border-radius: 10px; /* Bordes redondeados */
+            width: 50%; /* Ancho del formulario */
+            margin: 0 auto; /* Centrar el formulario */
+        }
+        
+        select {
+            padding: 5px; /* Relleno para el select */
+            border-radius: 5px; /* Bordes redondeados */
+            margin-bottom: 10px; /* Espaciado inferior */
+            width: 100%; /* Alinear con el formulario */
+        }
+        
+        button {
+            padding: 10px 20px; /* Tamaño del botón */
+            border-radius: 5px; /* Bordes redondeados */
+            background-color: #4CAF50; /* Color verde para el botón */
+            color: white; /* Texto blanco en el botón */
+            border: none; /* Sin bordes */
+            cursor: pointer; /* Cambia el cursor al pasar por el botón */
+        }
+        
+        button:hover {
+            background-color: #45a049; /* Efecto hover */
+        }
+        
+        h2 {
+            color: #333; /* Color del texto */
+            margin-top: 20px; /* Espaciado superior */
+        }
+        
+        pre {
+            background-color: #f9f9f9; /* Fondo claro para la salida */
+            padding: 10px; /* Relleno interno */
+            border: 1px solid #ddd; /* Borde ligero */
+            border-radius: 5px; /* Bordes redondeados */
+            white-space: pre-wrap; /* Mantener los saltos de línea */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ejecutar un Script</h1>
+    
+    <!-- Formulario para seleccionar el script a ejecutar -->
+    <form method="post" action="/execute">
+        <label for="script">Seleccione un script para ejecutar:</label>
+        <select id="script" name="script">
+            <option value="Hill_Clim_itera">Hill_Clim_itera.py</option>
+            <option value="templado">templado.py</option>
+        </select>
+        <button type="submit">Ejecutar</button>
+    </form>
+    
+    <!-- Sección para mostrar el resultado del script ejecutado -->
+    {% if resultado %}
+        <h2>Resultado del script:</h2>
+        <pre>{{ resultado }}</pre> <!-- Muestra el resultado en formato monoespaciado -->
+    {% endif %}
+    
+</body>
+</html>
